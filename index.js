@@ -44,14 +44,14 @@ const ammendOneOfRules = config => (a, c) => {
 		|| (() => false))
 
 	const issuerAccepts = ('issuer' in c
-		&& typeof c.issuer !== 'undefined'
+		&& typeof c.issuer === 'object'
 		&& 'and' in c.issuer
 		&& Array.isArray(c.issuer.and)
 		&& matchArray(c.issuer.and)
 		|| (() => false))
 
 	const issuerAvoids = ('issuer' in c
-		&& typeof c.issuer !== 'undefined'
+		&& typeof c.issuer === 'object'
 		&& 'not' in c.issuer
 		&& Array.isArray(c.issuer.not)
 		&& matchArray(c.issuer.not)
